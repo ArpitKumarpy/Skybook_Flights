@@ -1,0 +1,9 @@
+{
+  "name": "SkyBook - Airline Reservation System",
+  "description": "Full-featured flight search, seat selection, booking management, and admin operations platform.",
+  "prompt": "SkyBook flight reservation system with interactive seat maps, ticket generation, booking management, and admin controls",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
