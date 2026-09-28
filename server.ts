@@ -1297,6 +1297,16 @@ app.get("/api/travel-history/last-location/:userId", requireAuth, (req, res) => 
   res.json(last);
 });
 
+// --- Health Check for Render & Uptime Monitors ---
+app.get("/health", (_req, res) => {
+  res.status(200).json({ status: "ok", timestamp: nowIso() });
+});
+
+// Clean 404 for any unhandled /api calls
+app.all("/api/*", (_req, res) => {
+  res.status(404).json({ message: "API endpoint not found" });
+});
+
 // ==========================================
 // Vite Middleware / Static Serve
 // ==========================================

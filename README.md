@@ -73,12 +73,37 @@ src/
   original file, though nothing currently renders a Bookings `CrudPanel` —
   admin booking management goes through the dedicated `Bookings` component.
 
-## Running
+## Deploying to Render (100% Free Portfolio Hosting)
 
-```bash
-npm install
-npm run dev
-```
+This application is ready to deploy on **Render** as a single, unified web service (Frontend + API):
 
-Set `VITE_API_BASE_URL` in a `.env` file if your backend isn't at
-`http://localhost:8080/api`.
+### Option A: Automatic Deployment (Recommended)
+1. Push this repository to GitHub.
+2. Log into [Render](https://render.com) and click **New +** &rarr; **Blueprint**.
+3. Select your repository. Render will automatically detect `render.yaml` and configure:
+   - **Build Command**: `npm install && npm run build`
+   - **Start Command**: `npm start`
+   - **Health Check Path**: `/health`
+4. Click **Apply**.
+
+### Option B: Manual Web Service Setup
+1. Log into [Render](https://render.com) and click **New +** &rarr; **Web Service**.
+2. Connect your GitHub repository.
+3. Configure the following:
+   - **Runtime**: `Node`
+   - **Build Command**: `npm install && npm run build`
+   - **Start Command**: `npm start`
+   - **Plan**: `Free`
+4. Click **Deploy Web Service**.
+
+### Pre-configured Demo Accounts
+Once deployed, you can log in with:
+- **Admin**: `admin@skybook.com` / `admin123`
+- **User**: `user@skybook.com` / `user123`
+
+### Keeping the Free Instance Awake (Optional)
+Render's free tier spins down after 15 minutes of inactivity. To prevent cold starts:
+1. Create a free account at [UptimeRobot](https://uptimerobot.com).
+2. Add a new **HTTP(s)** monitor pointing to your Render app URL or health check (e.g. `https://your-app.onrender.com/health`).
+3. Set the interval to **10 minutes**. This keeps your service awake 24/7!
+
